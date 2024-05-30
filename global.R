@@ -1,3 +1,7 @@
+# Last modified on 05/30/2024
+# Original Author: Naima BEL MOKHTAR (Email: naima1503@gmail.com)
+# Modified by: Maulana Malik NASHRULLOH (Email: maulana@genbinesia.or.id)
+########################################################
 library(shinydashboard)
 library(shiny)
 library(varhandle)
@@ -28,16 +32,15 @@ library(measurements)
 library(BiocManager)
 library(adespatial)
 library(vegan)
+library(viridis)
+#library(scatterD3)
 
 #bioconductor
 library(ggtree) 
 library(phyloseq)
-library(viridis)
-library(viridis)
 library(ComplexHeatmap)
 library(InteractiveComplexHeatmap)
 library(circlize)
-#library(scatterD3)
 
 library(QsRutils)
 
