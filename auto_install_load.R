@@ -1,6 +1,7 @@
 # MetaXplore Version 1.0
-# Last modified on 05/03/2024
-# Author: Naima BEL MOKHTAR (Email: naima1503@gmail.com)
+# Last modified on 05/30/2024
+# Original Author: Naima BEL MOKHTAR (Email: naima1503@gmail.com)
+# Modified by: Maulana Malik NASHRULLOH (Email: maulana@genbinesia.or.id)
 ########################################################
 
 ## Check and load packages
@@ -15,14 +16,17 @@ installed.github.all <-allpkgs[grepl("Github",allpkgs$source),]
 
 
 # Install Cran packages not yet installed
-pkgs.cran <- c("shinydashboard", "shiny", "varhandle", "gplots", "ggplot2", "stringr",
+pkgs.cran <- c("curl", "littler", "RNetCDF", "sf", "systemfonts", "terra", "lwgeom", "magick", "textshaping", "gdtools", "ragg", "flextable",
+			   "shinydashboard", "shiny", "varhandle", "gplots", "ggplot2", "stringr",
                "shinyBS", "shinyjs", "shinythemes", "plotly", "reshape2",
                "DT", "magrittr", "dplyr", "RColorBrewer", "tidyr",
                "ade4", "GUniFrac", "phangorn", "cluster", "fpc", "assertr", 
                "units","ape", "picante", "circlize", "viridis", "vegan", 
                "shinydashboardPlus", "ggpubr", "tidyr", "shinyalert",
                "plotrix", "PerformanceAnalytics", "reshape", "funrar", "fossil", 
-               "qdapTools", "measurements", "nloptr", "ggvenn","BiocManager", "jtools"
+               "qdapTools", "measurements", "nloptr", "ggvenn","BiocManager", "jtools",
+			   "networkD3", "adespatial",
+			   "CFtime", "rtf", "PKI"
                )
 installed.pkgs.cran <- pkgs.cran %in% installed.cran.all$package
 if (any(installed.pkgs.cran == FALSE)) {
@@ -31,23 +35,31 @@ if (any(installed.pkgs.cran == FALSE)) {
 
 
 
-# Install Cran packages not yet installed
-pkgs.bioc <- c("ggtree", "phyloseq", "GenomicRanges", "ComplexHeatmap") #, "microbiome"
+# Install Bioconductor packages not yet installed
+pkgs.bioc <- c("ggtree", "microbiome", "phyloseq", "GenomicRanges", "ComplexHeatmap", 
+			   "InteractiveComplexHeatmap", "DESeq2", "biobroom", "graphite",
+			   "ggtreeExtra", "MicrobiotaProcess"
+			   )
 installed.pkgs.bioc <- pkgs.bioc %in% installed.bioc.all$package
 if (any(installed.pkgs.bioc == FALSE)) {
-  #BiocManager::install(pkgs.bioc[!installed.pkgs.bioc])
+  BiocManager::install(pkgs.bioc[!installed.pkgs.bioc])
 }
 
 
-
-pkgs.github <- c("QsRutils", "pairwiseAdonis") #, "microbiome"
+#These packages only available in Github, use devtools to install them!
+pkgs.github <- c("QsRutils", "pairwiseAdonis", "mattsUtils", "microeco") 
 installed.pkgs.github <- pkgs.github %in% installed.github.all$package
 if("QsRutils" %in% installed.github.all$package==F)
   devtools::install_github("jfq3/QsRutils", build_vignettes = TRUE)
 
 if("pairwiseAdonis" %in% installed.github.all$package==F)
-  install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
+  devtools::install_github("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
 
+if("mattsUtils" %in% installed.github.all$package==F)
+  devtools::install_github("mworkentine/mattsUtils", build_vignettes = TRUE)
+
+if("microeco" %in% installed.github.all$package==F)
+  devtools::install_github("ChiLiubio/microeco", build_vignettes = TRUE)
 
 # Packages loading
 invisible(lapply(pkgs.cran, library, character.only = TRUE))
