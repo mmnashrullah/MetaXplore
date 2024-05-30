@@ -1,5 +1,8 @@
-#
-source("auto_install_load.R")
+# Last modified on 05/30/2024
+# Original Author: Naima BEL MOKHTAR (Email: naima1503@gmail.com)
+# Modified by: Maulana Malik NASHRULLOH (Email: maulana@genbinesia.or.id)
+########################################################
+source("./auto_install_load.R")
 
 library(jtools)
 tags$head(tags$link(rel="shortcut icon", href="favicon.ico"))
@@ -23,7 +26,7 @@ dashboardPage(
   ), 
   dashboardBody(
     useShinyjs(),
-    useShinyalert(),
+    useShinyalert(force = TRUE),
     
     tabItems(
       guide,
