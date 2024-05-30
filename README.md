@@ -50,7 +50,7 @@ pip install rshiny-server-cmd --break-system-packages (using --break-system-pack
 
 **Testing and deployment
 
-If all packages and requirements are installed, please check your http://localhost:3838/ (default port where shiny listened) to see the Shiny test page.
+If all packages and requirements are installed, please check your http://localhost:3838/ (default port where Shiny listened) in your browser to see the Shiny test page. If you see the Shiny test page, your Shiny installation is successful. 
 
 To deploy MetaXplore, download and unpack the downloaded zip package to your desired folder (~/MetaXplore, for example).
 
@@ -59,6 +59,12 @@ I already made some little modifications to the scripts to prevent deployment er
 After being deployed run this command to start MetaXplore. You can change the port number to any free port number (not being used by other programs and surely not the same 3838 port used by the previous Shiny instance, in this case, I use 3839). You also can change the folder where you deploy MetaXplore:
 
 rshiny-server-cmd --port 3839 ~/MetaXplore/
+
+If you encounter an error or fail to see anything because a library or some libraries are missing, open your terminal and call R using sudo (sudo R). In the R prompt, run the following command.
+
+source("/where/is/the/MetaXplore/auto_install_load.R")
+
+In this case run source("/home/user_name/MetaXplore/auto_install_load.R") (do not abbreviate /home/user_name into ~ in this command) and rerun MetaXplore by rshiny-server-cmd 
 
 # Citation
 Please cite the original research article written by the original authors of MetaXplore instead of this repository. I just modified it a bit and provided the deployment tricks.
