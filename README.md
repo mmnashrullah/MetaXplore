@@ -58,7 +58,7 @@ To deploy MetaXplore, download and unpack the downloaded zip package to your des
 
 I already made some little modifications to the scripts to prevent deployment errors due to unavailable packages lacking in the original script. All should be OK right now.
 
-After being deployed run this command to start MetaXplore. You can change the port number to any free port number (not being used by other programs and surely not the same 3838 port used by the previous Shiny instance) In this case, I use 3839, so MetaXplore will be available at http://localhost:3839/. You also can change the folder where you deploy MetaXplore:
+After being deployed run this command to start MetaXplore. You can change the port number to any free port number (not being used by other programs and surely not the same 3838 port used by the previous Shiny instance). In this case, I use 3839, so MetaXplore will be available at http://localhost:3839/. You also can change the folder where you deploy MetaXplore:
 
 rshiny-server-cmd --port 3839 ~/MetaXplore/
 
