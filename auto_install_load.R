@@ -47,7 +47,7 @@ if (any(installed.pkgs.bioc == FALSE)) {
 
 
 #These packages only available in Github, use devtools to install them!
-pkgs.github <- c("QsRutils", "pairwiseAdonis", "mattsUtils", "microeco") 
+pkgs.github <- c("QsRutils", "pairwiseAdonis", "mattsUtils", "microeco", "file2meco") 
 installed.pkgs.github <- pkgs.github %in% installed.github.all$package
 if("QsRutils" %in% installed.github.all$package==F)
   devtools::install_github("jfq3/QsRutils", build_vignettes = TRUE)
@@ -60,6 +60,9 @@ if("mattsUtils" %in% installed.github.all$package==F)
 
 if("microeco" %in% installed.github.all$package==F)
   devtools::install_github("ChiLiubio/microeco", build_vignettes = TRUE)
+
+if("file2meco" %in% installed.github.all$package==F)
+  devtools::install_github("ChiLiubio/file2meco", build_vignettes = TRUE)
 
 # Packages loading
 invisible(lapply(pkgs.cran, library, character.only = TRUE))
